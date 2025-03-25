@@ -4,17 +4,29 @@ Created on 2024年9月23日
 @author: 13507
 '''
 
+import os
+
 # from behavior_intention.cn.edu.xidian.sai.front_end_handler.extract_log_handler import extract_log_handler
 from behavior_intention.cn.edu.xidian.sai.front_end_handler.encode_log_handler import encode_log_handler
 from behavior_intention.cn.edu.xidian.sai.front_end_handler.vectorize_log_handler import vectorize_log_handler
 from behavior_intention.cn.edu.xidian.sai.front_end_handler.data_process_handler import data_divide_handler
 from behavior_intention.cn.edu.xidian.sai.front_end_handler.data_process_handler2 import generate_param_value_handler
 from behavior_intention.cn.edu.xidian.sai.front_end_handler.data_process_handler import save_param_values_from_train_handler
+from behavior_intention.cn.edu.xidian.sai.service.impl.behavior_classify_service import get_parent_path
 
 # 训练数据预处理模块
 def behavior_data_preprocess_train_main_api(behavior_file, field_by, logid_field, behavior_field, time_delta, time_field, interval_standard, para_field, window_size, zoom_value, top_n):
     train_or_predict_mark = 't'
-    
+
+    # 创建中间文件的存放目录
+    tmpdata_path = ["Anormaly", "BehaviorTriple", "BusinessLog", "BussinessModel", "BusinessPattern", "CooccurrenceMatrix"
+                    , "DataPreprocess", "EventNpy", "ExecutePathModel", "IntermediateFile", "KnowlegeGraph",
+                    "NextBehaviorBasedData", "ParamData", "ParamModel", "SeqData","SeqLog", "SeqModel", "SpellResult",
+                    "struct", "TmpLog"]
+    for path in tmpdata_path:
+        if not os.path.exists(f"{get_parent_path()}/service/impl/tmpdata/{path}"):
+            os.makedirs(f"{get_parent_path()}/service/impl/tmpdata/{path}")
+
     # 保存函数的参数值
     save_param_values_from_train_handler(field_by, logid_field, behavior_field, time_delta, time_field, interval_standard, para_field, window_size, zoom_value, top_n)
     

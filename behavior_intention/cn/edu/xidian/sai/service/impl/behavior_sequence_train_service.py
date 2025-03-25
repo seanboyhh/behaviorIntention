@@ -18,8 +18,8 @@ from behavior_intention.cn.edu.xidian.sai.dao.impl.data_process_dao import csv_t
 from behavior_intention.cn.edu.xidian.sai.service.impl.data_process_service import get_max_behavior_encoding
 
 # cpu和gpu配置
-GPU = ['cuda', 'cuda:0', 'cuda:1', 'cuda:2']
-device = torch.device(GPU[1]) #if torch.cuda.is_available() else "cpu"
+GPU = ['cuda', 'cuda:0', 'cuda:1', 'cuda:2', 'mps']
+device = torch.device(GPU[1] if torch.cuda.is_available() else (torch.device(GPU[4] if torch.backends.mps.is_available() else "cpu")))
 
 ##使用滑动窗口分割数据
 def generate(name):

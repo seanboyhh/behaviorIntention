@@ -1,2 +1,0 @@
-{"require_encode_field": ["generic_result_action", "src_account", "src_device_name", "src_device_ip", "src_device_mac", "srcdisktypename", "dstdisktypename"], "field_by": ["src_account"], "logid_field": "log_uuid", "behavior_field": "generic_result_action", "time_delta": 0, "time_field": "datetime", "interval_standard": 1800, "para_field": ["src_account", "src_device_name", "src_device_ip", "src_device_mac", "srcdisktypename", "dstdisktypename"], "agent_field": "src_account", "window_size": 2, "zoom_value": 0.85, "top_n": 8}
-11

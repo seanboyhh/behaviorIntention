@@ -56,7 +56,7 @@ def anomaly_detect_train_main_api(behavior_file, field_by, logid_field, behavior
 
 # 测试代码块---接口调用示例
 if __name__ == '__main__':
-    behavior_file = 'D:/data/project/xdProjects/ShanghaiProject/20241218/终端文件操作日志_20241211.csv'  # 训练阶段使用的行为日志数据
+    behavior_file = '/Users/seanboy/Documents/data/temp/20241218/终端文件操作日志_20241211-10w.csv'  # 训练阶段使用的行为日志数据
     field_by = ["src_account"]
     logid_field = "log_uuid"
     behavior_field = "generic_result_action"
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     threshold = 0.4
     window_size = 2
     zoom_value = 0.85
-    top_n = 8
+    top_n = 8111
     anomaly_detect_train_main_api(behavior_file, field_by, logid_field, behavior_field, time_delta, time_field, interval_standard, para_field, max_distance, threshold, window_size, zoom_value, top_n)
     
     
